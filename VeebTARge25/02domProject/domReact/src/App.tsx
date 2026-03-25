@@ -5,15 +5,53 @@ import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  document.getElementById("");
+//näitab kõiki DOM-i elemente, mis on lehel olemas. See on nagu
+// veebilehe struktuuri kaart, mis näitab kõiki elemente ja 
+//nende suhteid üksteisega. See võib olla kasulik, kui
+// soovite mõista, kuidas leht on üles ehitatud ja kuidas
+// erinevad elemendid omavahel seotud on.
+//console.log(document)
 
-  return (
+
+//dir näitab kõiki DOM-i elemente, mis on lehel olemas, kuid see
+// kuvab need hierarhiliselt, näidates iga elemendi lapsi ja vanemaid.
+//See on kasulik, kui soovite näha, kuidas elemendid on omavahel seotud
+// ja kuidas nad on paigutatud lehel. See võib aidata teil mõista,
+// kuidas leht on üles ehitatud ja kuidas erinevad elemendid omavahel seotud on.
+//console.dir(document);
+
+// Nüüd proovime muuta documendi title-i, mis on DOM-i element.
+// See on nagu veebilehe pealkiri, mis kuvatakse brauseri vahekaardil.
+//document.title = "DOM-i pealkiri on muudetud"
+
+
+//nüüd proovima muuta documendi body taustavärvi, mis on DOM-i element
+//document.body.style.backgroundColor = "pink";
+
+// Nüüd muudame h1 all olevat teksti, mis on DOM-i element. See on
+// nagu veebilehe peamine pealkiri, mis kuvatakse lehe sisu sees.I
+//document.querySelector("h1")!.textContent = "DOM-i peamine pealkiri on muudetud!";
+
+//nüüd sisestame uue muutuja nimega username
+// See on nagu veebilehe kasutajanimi, mis võib olla tühi või sisaldada
+// kasutaja nime. See võib olla kasulik, kui soovite näidata erinevat
+//teksti sõltuvalt sellest, kas kasutaja on sisse logitud või mitte.
+
+const username: string = "";
+
+//const domTitle = document.getElementById("dom-Title");
+//if (domTitle){
+ // domTitle.textContent += username === "" ? "Tere külaline!": username;
+//}
+
+
+return (
     <>
-      <section id="center">
-
-        <h1>
-          <strong>Mis on DOM?</strong>
+        <h1 id="dom-Title">
+          {username === "" ? "Mis on DOM!" : username }
         </h1>
+
         <p>
           DOM on document object model.
           On võimalik teha staatiline leht dünaamiliseks JS/TS on 
@@ -31,7 +69,6 @@ function App() {
           Nt, html sees on head ja title. Body sees on h1, p, a jne. Need 
           on kõik DOMi elemendid, mida saab Javascripti abil manipuleerida
         </p>
-      </section>
 
       <div className="ticks"></div>
 
