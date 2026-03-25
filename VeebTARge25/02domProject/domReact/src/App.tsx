@@ -40,6 +40,8 @@ function App() {
 
 const username: string = "";
 
+
+//Selliselt ei ole vaja teha (liiga palju)
 //const domTitle = document.getElementById("dom-Title");
 //if (domTitle){
  // domTitle.textContent += username === "" ? "Tere külaline!": username;
