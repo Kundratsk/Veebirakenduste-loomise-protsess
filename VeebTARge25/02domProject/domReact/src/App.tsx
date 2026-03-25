@@ -31,7 +31,7 @@ function App() {
 
 // Nüüd muudame h1 all olevat teksti, mis on DOM-i element. See on
 // nagu veebilehe peamine pealkiri, mis kuvatakse lehe sisu sees.I
-// ära kasuta querySelector Reacti juures
+// ära kasuta querySelector Reacti juures ja pigem if kontrolli.
 //document.querySelector("h1")!.textContent = "DOM-i peamine pealkiri on muudetud!";
 
 //nüüd sisestame uue muutuja nimega username
