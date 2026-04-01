@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telgikas - Telgirent</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Telgikas</h1>
+  <p>Telgirent üritusteks – kiire, lihtne ja usaldusväärne</p>
+</header>
+
+<nav>
+  <a href="#">Avaleht</a>
+  <a href="#telk">Telk</a>
+  <a href="#broneeri">Broneeri</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<div class="container">
+
+<div class="card" id="telk">
+  <h2>Meie telk</h2>
+  <img src="./telk.jpg" alt="Telgikas telk üritusel" class="telk-img">
+  <p><b>Suurus:</b> 8x10m</p>
+  <p>Sobib pulmadeks, sünnipäevadeks ja üritusteks.</p>
+
+  <h3>Hinnakiri</h3>
+  <ul>
+    <li>1 päev: 150€</li>
+    <li>Iga järgnev päev: +20€</li>
+    <li>Paigaldus: 50€</li>
+    <li>Transport: kokkuleppel</li>
+  </ul>
+</div>
+
+<div class="card" id="broneeri">
+  <h2>Broneeri telk</h2>
+
+  <form onsubmit="return sendForm()">
+    <input type="text" id="name" placeholder="Sinu nimi" required>
+    <input type="email" id="email" placeholder="Email" required>
+
+    <label>Alguskuupäev:</label>
+    <input type="date" id="start" required>
+
+    <label>Lõppkuupäev:</label>
+    <input type="date" id="end" required>
+
+    <label>
+      <input type="checkbox" id="setup"> Soovin paigaldust (+50€)
+    </label>
+
+    <div class="price-box" id="price">
+      Hind: 0€
+    </div>
+
+    <textarea placeholder="Lisainfo"></textarea>
+
+    <button class="btn">Saada päring</button>
+  </form>
+</div>
+
+<div class="card" id="kontakt">
+  <h2>Kontakt</h2>
+  <p>Telefon: +372 XXX XXX</p>
+  <p>Email: info@telgikas.ee</p>
+</div>
+
+</div>
+
+<footer>
+  <p>© 2026 Telgikas</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
