@@ -1,0 +1,331 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); color: var(--color-text-primary); }
+.app { max-width: 720px; margin: 0 auto; padding: 1.5rem 1rem; }
+h1 { font-size: 22px; font-weight: 500; margin-bottom: 0.25rem; }
+.subtitle { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+.tabs { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.tab { padding: 8px 18px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: transparent; font-size: 14px; font-weight: 500; cursor: pointer; color: var(--color-text-secondary); transition: all 0.15s; }
+.tab.active { background: var(--color-background-secondary); color: var(--color-text-primary); border-color: var(--color-border-primary); }
+.tab:hover:not(.active) { background: var(--color-background-secondary); }
+.panel { display: none; }
+.panel.active { display: block; }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; margin-bottom: 1rem; }
+label { font-size: 13px; color: var(--color-text-secondary); display: block; margin-bottom: 6px; }
+input[type=text], input[type=number], select { width: 100%; margin-bottom: 12px; }
+.btn { padding: 9px 20px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: transparent; font-size: 14px; font-weight: 500; cursor: pointer; color: var(--color-text-primary); transition: all 0.15s; }
+.btn:hover { background: var(--color-background-secondary); }
+.btn:active { transform: scale(0.98); }
+.btn-primary { background: var(--color-text-primary); color: var(--color-background-primary); border-color: transparent; }
+.btn-primary:hover { opacity: 0.85; background: var(--color-text-primary); }
+.result-box { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 1rem; margin-top: 1rem; font-size: 24px; font-weight: 500; text-align: center; min-height: 60px; display: flex; align-items: center; justify-content: center; }
+.calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 1rem; }
+.calc-btn { padding: 14px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); font-size: 16px; cursor: pointer; font-weight: 400; color: var(--color-text-primary); transition: all 0.1s; }
+.calc-btn:hover { background: var(--color-background-secondary); }
+.calc-btn:active { transform: scale(0.96); }
+.calc-btn.op { color: #185FA5; font-weight: 500; }
+.calc-btn.eq { background: var(--color-text-primary); color: var(--color-background-primary); }
+.calc-btn.eq:hover { opacity: 0.85; background: var(--color-text-primary); }
+.calc-btn.clear { color: #A32D2D; }
+.calc-display { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 1rem 1.25rem; text-align: right; margin-bottom: 1rem; }
+.calc-expr { font-size: 13px; color: var(--color-text-secondary); min-height: 20px; }
+.calc-num { font-size: 28px; font-weight: 500; min-height: 40px; word-break: break-all; }
+.todo-row { display: flex; gap: 8px; margin-bottom: 1rem; }
+.todo-row input { flex: 1; margin: 0; }
+.todo-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.todo-item:last-child { border-bottom: none; }
+.todo-item.done span { text-decoration: line-through; color: var(--color-text-tertiary); }
+.todo-item input[type=checkbox] { width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
+.todo-item span { flex: 1; font-size: 15px; }
+.todo-del { background: none; border: none; color: var(--color-text-tertiary); font-size: 18px; cursor: pointer; padding: 0 4px; line-height: 1; }
+.todo-del:hover { color: #A32D2D; }
+.empty { color: var(--color-text-tertiary); font-size: 14px; text-align: center; padding: 1.5rem; }
+.quiz-q { font-size: 16px; font-weight: 500; margin-bottom: 1rem; }
+.quiz-opts { display: grid; gap: 8px; }
+.quiz-opt { padding: 10px 14px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: transparent; text-align: left; font-size: 14px; cursor: pointer; color: var(--color-text-primary); transition: all 0.15s; }
+.quiz-opt:hover:not(:disabled) { background: var(--color-background-secondary); }
+.quiz-opt.correct { border-color: #3B6D11; background: #EAF3DE; color: #27500A; }
+.quiz-opt.wrong { border-color: #A32D2D; background: #FCEBEB; color: #791F1F; }
+.quiz-feedback { margin-top: 1rem; padding: 10px 14px; border-radius: var(--border-radius-md); font-size: 14px; }
+.quiz-feedback.ok { background: #EAF3DE; color: #27500A; }
+.quiz-feedback.err { background: #FCEBEB; color: #791F1F; }
+.score-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.score-pill { background: var(--color-background-secondary); border-radius: 99px; padding: 4px 14px; font-size: 13px; font-weight: 500; }
+.progress { height: 4px; background: var(--color-background-secondary); border-radius: 99px; margin-bottom: 1.25rem; overflow: hidden; }
+.progress-fill { height: 100%; background: #185FA5; border-radius: 99px; transition: width 0.3s; }
+.filter-row { display: flex; gap: 8px; margin-bottom: 1rem; align-items: center; }
+.filter-row input { flex: 1; margin: 0; }
+.filter-row select { width: auto; margin: 0; }
+.list-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.list-item:last-child { border-bottom: none; }
+.list-name { font-size: 15px; }
+.list-tag { font-size: 12px; font-weight: 500; padding: 2px 10px; border-radius: 99px; }
+.tag-töö { background: #E6F1FB; color: #0C447C; }
+.tag-isiklik { background: #EEEDFE; color: #3C3489; }
+.tag-õpe { background: #EAF3DE; color: #27500A; }
+.tag-sport { background: #FAEEDA; color: #633806; }
+.count { color: var(--color-text-secondary); font-size: 13px; }
+</style>
+
+<div class="app">
+  <h1>Funktsionaalne Veebileht</h1>
+  <p class="subtitle">Kalkulaator · Ülesannete loend · Viktoriin · Filtriga nimekiri</p>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('calc')">Kalkulaator</button>
+    <button class="tab" onclick="switchTab('todo')">Ülesanded</button>
+    <button class="tab" onclick="switchTab('quiz')">Viktoriin</button>
+    <button class="tab" onclick="switchTab('filter')">Nimekiri</button>
+  </div>
+
+  <div id="calc" class="panel active">
+    <div class="card">
+      <div class="calc-display">
+        <div class="calc-expr" id="calc-expr"></div>
+        <div class="calc-num" id="calc-num">0</div>
+      </div>
+      <div class="calc-grid">
+        <button class="calc-btn clear" onclick="calcClear()">C</button>
+        <button class="calc-btn op" onclick="calcSign()">+/−</button>
+        <button class="calc-btn op" onclick="calcPercent()">%</button>
+        <button class="calc-btn op" onclick="calcOp('/')">÷</button>
+        <button class="calc-btn" onclick="calcNum('7')">7</button>
+        <button class="calc-btn" onclick="calcNum('8')">8</button>
+        <button class="calc-btn" onclick="calcNum('9')">9</button>
+        <button class="calc-btn op" onclick="calcOp('*')">×</button>
+        <button class="calc-btn" onclick="calcNum('4')">4</button>
+        <button class="calc-btn" onclick="calcNum('5')">5</button>
+        <button class="calc-btn" onclick="calcNum('6')">6</button>
+        <button class="calc-btn op" onclick="calcOp('-')">−</button>
+        <button class="calc-btn" onclick="calcNum('1')">1</button>
+        <button class="calc-btn" onclick="calcNum('2')">2</button>
+        <button class="calc-btn" onclick="calcNum('3')">3</button>
+        <button class="calc-btn op" onclick="calcOp('+')">+</button>
+        <button class="calc-btn" onclick="calcNum('0')" style="grid-column: span 2;">0</button>
+        <button class="calc-btn" onclick="calcDot()">.</button>
+        <button class="calc-btn eq" onclick="calcEquals()">=</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="todo" class="panel">
+    <div class="card">
+      <div class="todo-row">
+        <input type="text" id="todo-input" placeholder="Lisa uus ülesanne..." onkeydown="if(event.key==='Enter')addTodo()">
+        <button class="btn btn-primary" onclick="addTodo()">Lisa</button>
+      </div>
+      <div id="todo-list"></div>
+      <div style="display:flex;justify-content:space-between;margin-top:12px;align-items:center">
+        <span class="count" id="todo-count">0 ülesannet</span>
+        <button class="btn" onclick="clearDone()" style="font-size:13px;padding:6px 14px;">Kustuta tehtud</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="quiz" class="panel">
+    <div class="card">
+      <div class="score-bar">
+        <span style="font-size:14px;color:var(--color-text-secondary)" id="quiz-progress-txt">Küsimus 1 / 5</span>
+        <span class="score-pill" id="quiz-score">Skoor: 0</span>
+      </div>
+      <div class="progress"><div class="progress-fill" id="quiz-bar" style="width:20%"></div></div>
+      <div class="quiz-q" id="quiz-q"></div>
+      <div class="quiz-opts" id="quiz-opts"></div>
+      <div id="quiz-feedback" style="display:none" class="quiz-feedback"></div>
+      <div style="margin-top:1rem;text-align:right">
+        <button class="btn btn-primary" id="quiz-next" onclick="nextQuestion()" style="display:none">Järgmine</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="filter" class="panel">
+    <div class="card">
+      <div class="filter-row">
+        <input type="text" id="f-search" placeholder="Otsi..." oninput="renderList()">
+        <select id="f-tag" onchange="renderList()">
+          <option value="">Kõik kategooriad</option>
+          <option value="töö">Töö</option>
+          <option value="isiklik">Isiklik</option>
+          <option value="õpe">Õpe</option>
+          <option value="sport">Sport</option>
+        </select>
+      </div>
+      <div id="f-list"></div>
+      <div class="count" id="f-count" style="margin-top:10px"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+let cNum = '0', cOp = null, cPrev = null, cReset = false;
+function updCalc() {
+  document.getElementById('calc-num').textContent = parseFloat(cNum).toLocaleString('et', {maximumFractionDigits: 8});
+}
+function calcNum(d) {
+  if (cReset) { cNum = d; cReset = false; }
+  else cNum = cNum === '0' ? d : cNum + d;
+  updCalc();
+}
+function calcDot() {
+  if (cReset) { cNum = '0.'; cReset = false; }
+  else if (!cNum.includes('.')) cNum += '.';
+  updCalc();
+}
+function calcClear() {
+  cNum = '0'; cOp = null; cPrev = null; cReset = false;
+  document.getElementById('calc-expr').textContent = '';
+  updCalc();
+}
+function calcSign() { cNum = String(-parseFloat(cNum)); updCalc(); }
+function calcPercent() { cNum = String(parseFloat(cNum) / 100); updCalc(); }
+function calcOp(op) {
+  if (cOp && !cReset) calcEquals(true);
+  cPrev = parseFloat(cNum);
+  cOp = op;
+  cReset = true;
+  const sym = {'+':'+','-':'−','*':'×','/':'÷'}[op];
+  document.getElementById('calc-expr').textContent = cPrev + ' ' + sym;
+}
+function calcEquals(chain) {
+  if (!cOp || cPrev === null) return;
+  const a = cPrev, b = parseFloat(cNum);
+  let r;
+  if (cOp === '+') r = a + b;
+  else if (cOp === '-') r = a - b;
+  else if (cOp === '*') r = a * b;
+  else if (cOp === '/') r = b === 0 ? 'Viga' : a / b;
+  if (!chain) document.getElementById('calc-expr').textContent = '';
+  cNum = String(r === 'Viga' ? 'Viga' : parseFloat(r.toFixed(10)));
+  cOp = null; cPrev = null; cReset = true;
+  updCalc();
+}
+
+let todos = [];
+function addTodo() {
+  const inp = document.getElementById('todo-input');
+  const val = inp.value.trim();
+  if (!val) return;
+  todos.push({ id: Date.now(), text: val, done: false });
+  inp.value = '';
+  renderTodos();
+}
+function toggleTodo(id) {
+  const t = todos.find(t => t.id === id);
+  if (t) t.done = !t.done;
+  renderTodos();
+}
+function delTodo(id) { todos = todos.filter(t => t.id !== id); renderTodos(); }
+function clearDone() { todos = todos.filter(t => !t.done); renderTodos(); }
+function renderTodos() {
+  const el = document.getElementById('todo-list');
+  if (!todos.length) { el.innerHTML = '<div class="empty">Ülesanded puuduvad. Lisa esimene!</div>'; }
+  else el.innerHTML = todos.map(t => `
+    <div class="todo-item ${t.done?'done':''}">
+      <input type="checkbox" ${t.done?'checked':''} onchange="toggleTodo(${t.id})">
+      <span>${t.text}</span>
+      <button class="todo-del" onclick="delTodo(${t.id})">×</button>
+    </div>`).join('');
+  const done = todos.filter(t => t.done).length;
+  document.getElementById('todo-count').textContent = `${todos.length} ülesannet · ${done} tehtud`;
+}
+renderTodos();
+
+const questions = [
+  { q: 'Milline on Eesti pealinn?', opts: ['Riia', 'Tallinn', 'Vilnius', 'Helsinki'], ans: 1 },
+  { q: 'Mitmes on Eesti rahvusvahelises telefonikoodis?', opts: ['+370', '+358', '+372', '+371'], ans: 2 },
+  { q: 'Millises aastas sai Eesti iseseisvuse taas kätte?', opts: ['1989', '1990', '1991', '1992'], ans: 2 },
+  { q: 'Mis on Eesti rahvuslinnu nimi?', opts: ['Laulurästas', 'Suitsupääsuke', 'Kotkas', 'Kuldnokk'], ans: 1 },
+  { q: 'Kui pikk on Eesti rannajoone pikkus (ligikaudu)?', opts: ['1 400 km', '2 800 km', '3 800 km', '5 000 km'], ans: 2 },
+];
+let qIdx = 0, qScore = 0, answered = false;
+function renderQuestion() {
+  const q = questions[qIdx];
+  document.getElementById('quiz-q').textContent = q.q;
+  document.getElementById('quiz-progress-txt').textContent = `Küsimus ${qIdx+1} / ${questions.length}`;
+  document.getElementById('quiz-bar').style.width = ((qIdx+1)/questions.length*100) + '%';
+  document.getElementById('quiz-opts').innerHTML = q.opts.map((o,i) =>
+    `<button class="quiz-opt" onclick="answer(${i})">${o}</button>`).join('');
+  document.getElementById('quiz-feedback').style.display = 'none';
+  document.getElementById('quiz-next').style.display = 'none';
+  answered = false;
+}
+function answer(i) {
+  if (answered) return;
+  answered = true;
+  const q = questions[qIdx];
+  const btns = document.querySelectorAll('.quiz-opt');
+  btns.forEach(b => b.disabled = true);
+  if (i === q.ans) {
+    btns[i].classList.add('correct');
+    qScore++;
+    showFeedback(true, 'Õige!');
+  } else {
+    btns[i].classList.add('wrong');
+    btns[q.ans].classList.add('correct');
+    showFeedback(false, `Vale! Õige vastus oli: ${q.opts[q.ans]}`);
+  }
+  document.getElementById('quiz-score').textContent = `Skoor: ${qScore}`;
+  document.getElementById('quiz-next').style.display = 'inline-block';
+  document.getElementById('quiz-next').textContent = qIdx < questions.length-1 ? 'Järgmine' : 'Näita tulemust';
+}
+function showFeedback(ok, txt) {
+  const el = document.getElementById('quiz-feedback');
+  el.className = 'quiz-feedback ' + (ok ? 'ok' : 'err');
+  el.textContent = txt;
+  el.style.display = 'block';
+}
+function nextQuestion() {
+  qIdx++;
+  if (qIdx >= questions.length) {
+    document.getElementById('quiz-q').textContent = `Viktoriin lõppenud! Sinu tulemus: ${qScore} / ${questions.length}`;
+    document.getElementById('quiz-opts').innerHTML = '';
+    document.getElementById('quiz-feedback').style.display = 'none';
+    document.getElementById('quiz-next').style.display = 'none';
+    document.getElementById('quiz-bar').style.width = '100%';
+    const restart = document.createElement('button');
+    restart.className = 'btn btn-primary'; restart.style.marginTop = '1rem';
+    restart.textContent = 'Alusta uuesti';
+    restart.onclick = () => { qIdx = 0; qScore = 0; restart.remove(); renderQuestion(); document.getElementById('quiz-score').textContent = 'Skoor: 0'; };
+    document.querySelector('#quiz .card').appendChild(restart);
+  } else renderQuestion();
+}
+renderQuestion();
+
+const items = [
+  { name: 'Koosolek meeskonnaga', tag: 'töö' },
+  { name: 'Jooksutreening pargis', tag: 'sport' },
+  { name: 'Loe raamatut "Tõde ja õigus"', tag: 'õpe' },
+  { name: 'Helista vanematele', tag: 'isiklik' },
+  { name: 'Aruande koostamine', tag: 'töö' },
+  { name: 'Ujumine bassein', tag: 'sport' },
+  { name: 'JavaScript kursus', tag: 'õpe' },
+  { name: 'Hambaravi visiit', tag: 'isiklik' },
+  { name: 'Projekti esitlus', tag: 'töö' },
+  { name: 'Jalgpallitreening', tag: 'sport' },
+  { name: 'Matemaatika kordamine', tag: 'õpe' },
+  { name: 'Poe külastus', tag: 'isiklik' },
+];
+function renderList() {
+  const s = document.getElementById('f-search').value.toLowerCase();
+  const t = document.getElementById('f-tag').value;
+  const filtered = items.filter(i =>
+    i.name.toLowerCase().includes(s) && (!t || i.tag === t));
+  const el = document.getElementById('f-list');
+  if (!filtered.length) { el.innerHTML = '<div class="empty">Ühtegi tulemust ei leitud.</div>'; }
+  else el.innerHTML = filtered.map(i => `
+    <div class="list-item">
+      <span class="list-name">${i.name}</span>
+      <span class="list-tag tag-${i.tag}">${i.tag}</span>
+    </div>`).join('');
+  document.getElementById('f-count').textContent = `${filtered.length} / ${items.length} tulemust`;
+}
+renderList();
+</script>

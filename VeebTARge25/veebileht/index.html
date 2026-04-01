@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veebirakendus</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <h1>Interaktiivne veebirakendus</h1>
+    <p class="subtitle">Kalkulaator · Ülesannete loend · Viktoriin · Filtriga nimekiri</p>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="calc">Kalkulaator</button>
+      <button class="tab" data-tab="todo">Ülesanded</button>
+      <button class="tab" data-tab="quiz">Viktoriin</button>
+      <button class="tab" data-tab="filter">Nimekiri</button>
+    </div>
+
+    <!-- Kalkulaator -->
+    <div id="calc" class="panel active">
+      <div class="card">
+        <div class="calc-display">
+          <div class="calc-expr" id="calc-expr"></div>
+          <div class="calc-num" id="calc-num">0</div>
+        </div>
+        <div class="calc-grid">
+          <button class="calc-btn clear" data-action="clear">C</button>
+          <button class="calc-btn op" data-action="sign">+/−</button>
+          <button class="calc-btn op" data-action="percent">%</button>
+          <button class="calc-btn op" data-op="/">÷</button>
+          <button class="calc-btn" data-digit="7">7</button>
+          <button class="calc-btn" data-digit="8">8</button>
+          <button class="calc-btn" data-digit="9">9</button>
+          <button class="calc-btn op" data-op="*">×</button>
+          <button class="calc-btn" data-digit="4">4</button>
+          <button class="calc-btn" data-digit="5">5</button>
+          <button class="calc-btn" data-digit="6">6</button>
+          <button class="calc-btn op" data-op="-">−</button>
+          <button class="calc-btn" data-digit="1">1</button>
+          <button class="calc-btn" data-digit="2">2</button>
+          <button class="calc-btn" data-digit="3">3</button>
+          <button class="calc-btn op" data-op="+">+</button>
+          <button class="calc-btn wide" data-digit="0">0</button>
+          <button class="calc-btn" data-action="dot">.</button>
+          <button class="calc-btn eq" data-action="equals">=</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ülesanded -->
+    <div id="todo" class="panel">
+      <div class="card">
+        <div class="todo-row">
+          <input type="text" id="todo-input" placeholder="Lisa uus ülesanne...">
+          <button class="btn btn-primary" id="todo-add-btn">Lisa</button>
+        </div>
+        <div id="todo-list"></div>
+        <div class="todo-footer">
+          <span class="count" id="todo-count">0 ülesannet</span>
+          <button class="btn" id="todo-clear-btn">Kustuta tehtud</button>
+        </div>
+        <div class="save-notice"><span class="save-dot"></span><span>Ülesanded salvestatakse automaatselt</span></div>
+      </div>
+    </div>
+
+    <!-- Viktoriin -->
+    <div id="quiz" class="panel">
+      <div class="card">
+        <div class="score-bar">
+          <span class="quiz-progress-txt" id="quiz-progress-txt">Küsimus 1 / 5</span>
+          <span class="score-pill" id="quiz-score">Skoor: 0</span>
+        </div>
+        <div class="progress"><div class="progress-fill" id="quiz-bar" style="width:20%"></div></div>
+        <div class="quiz-q" id="quiz-q"></div>
+        <div class="quiz-opts" id="quiz-opts"></div>
+        <div id="quiz-feedback" class="quiz-feedback" style="display:none"></div>
+        <div class="quiz-next-row">
+          <button class="btn btn-primary" id="quiz-next" style="display:none">Järgmine</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtriga nimekiri -->
+    <div id="filter" class="panel">
+      <div class="card">
+        <div class="add-row">
+          <input type="text" id="new-item" placeholder="Uus kirje...">
+          <select id="new-tag">
+            <option value="töö">Töö</option>
+            <option value="isiklik">Isiklik</option>
+            <option value="õpe">Õpe</option>
+            <option value="sport">Sport</option>
+          </select>
+          <button class="btn btn-primary" id="item-add-btn">Lisa</button>
+        </div>
+        <div class="filter-row">
+          <input type="text" id="f-search" placeholder="Otsi...">
+          <select id="f-tag">
+            <option value="">Kõik kategooriad</option>
+            <option value="töö">Töö</option>
+            <option value="isiklik">Isiklik</option>
+            <option value="õpe">Õpe</option>
+            <option value="sport">Sport</option>
+          </select>
+        </div>
+        <div id="f-list"></div>
+        <div class="list-footer">
+          <span class="count" id="f-count"></span>
+          <button class="btn" id="reset-btn">Lähtesta</button>
+        </div>
+        <div class="save-notice"><span class="save-dot"></span><span>Nimekiri salvestatakse automaatselt</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/calculator.js"></script>
+  <script src="js/todo.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
