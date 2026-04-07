@@ -1,0 +1,543 @@
+/* ========================
+   Üldine lähtestamine
+   ======================== */
+* {
+  box-sizing: border-box; /* Kõikide elementide laius/kõrgus arvestab padding'u ja border'i sisse, mitte välja */
+  margin: 0;              /* Eemaldab kõikide elementide vaikimisi välised vahed */
+  padding: 0;             /* Eemaldab kõikide elementide vaikimisi sisemised vahed */
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif; /* Määrab lehekülje põhifondi, varuvariandid Arial ja sans-serif */
+  background: linear-gradient(135deg, #667eea, #764ba2); /* Diagonaalne lillakassinise gradiendi taust (kirjutab hiljem üle) */
+  color: #1a1a2e;         /* Lehekülje põhiteksti värv – tume sinakasmustad */
+  min-height: 100vh;      /* Leht katab alati vähemalt kogu akna kõrguse */
+  padding: 2rem 1rem;     /* Sisemine vahe: 2rem ülevalt/alt, 1rem küljelt */
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif; /* Määrab fondi uuesti (duubeldus eelmisega) */
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), /* Tumendav must läbipaistev kiht pildi peal */
+              url("https://images.unsplash.com/photo-1508780709619-79562169bc64") center/cover; /* Taustagraafika, tsentreeritud, katab kogu ala */
+  color: #fff; /* Kirjutab eelmise tekstivärvi üle – tekst on nüüd valge */
+}
+
+/* ========================
+   Põhipaigutus
+   ======================== */
+.app {
+  max-width: 700px; /* Sisu maksimaalne laius 700 pikslit */
+  margin: 0 auto;   /* Tsentreerib .app ploki horisontaalselt */
+}
+
+h1 {
+  font-size: 28px;  /* Peakirja suuruseks 28 pikslit */
+  font-weight: 800; /* Väga paks kiri */
+  background: linear-gradient(90deg, #fff, #ddd); /* Horisontaalne valgest hallikas gradient teksti taustal */
+  -webkit-background-clip: text;  /* Lõikab gradiendi teksti kuju järgi (WebKit-mootorid) */
+  -webkit-text-fill-color: transparent; /* Muudab teksti täidise läbipaistvaks, et gradient paistaks läbi */
+}
+
+.subtitle {
+  font-size: 14px;       /* Alapealkirja teksti suurus */
+  color: #6b7280;        /* Hall tekstvärv */
+  margin-bottom: 1.5rem; /* Vahe allpool */
+}
+
+/* ========================
+   Vahekaardid (tabs)
+   ======================== */
+.tabs {
+  display: flex;         /* Paigutab tab-nupud kõrvuti */
+  gap: 8px;              /* 8px vahe tab-nuppude vahel */
+  margin-bottom: 1.5rem; /* Vahe tabs-riba ja sisu vahel */
+  flex-wrap: wrap;       /* Nupud mahuvad vajaduse korral järgmisele reale */
+}
+
+.tab {
+  padding: 10px 20px;               /* Sisemine vahe: 10px ülevalt/alt, 20px küljelt */
+  border-radius: 999px;             /* Täiesti ümar nupukuju (pill-kuju) */
+  border: none;                     /* Eemaldab raami */
+  background: rgba(255,255,255,0.2);/* Poolläbipaistev valge taust */
+  color: #fff;                      /* Valge tekst */
+  backdrop-filter: blur(6px);       /* Udune klaasefekt tausta suhtes */
+}
+
+.tab:hover:not(.active) {
+  background: #f9fafb;    /* Helehall taust hiirega üle viies (ainult mitteaktiivsetel) */
+  border-color: #9ca3af;  /* Hall raami värv hover-olekus */
+}
+
+.tab.active {
+  background: #fff;    /* Aktiivse tab'i taust on valge */
+  color: #333;         /* Aktiivse tab'i tekst on tume */
+  font-weight: 600;    /* Aktiivne tab on poolpaks */
+}
+
+/* ========================
+   Paneelid
+   ======================== */
+.panel {
+  display: none; /* Peidab kõik paneelid vaikimisi */
+}
+
+.panel.active {
+  display: block; /* Näitab ainult aktiivset paneeli */
+}
+
+/* ========================
+   Kaart
+   ======================== */
+.card {
+  background: rgba(255, 255, 255, 0.85); /* Peaaegu läbipaistmatu valge taust */
+  backdrop-filter: blur(10px);           /* Udune klaasefekt kaardi taga oleva sisu suhtes */
+  border-radius: 16px;                   /* Ümarad nurgad */
+  padding: 1.5rem;                       /* Sisemine vahe igast küljest */
+  margin-bottom: 1rem;                   /* Vahe kaartide vahel */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Pehme vari kaardi all */
+  border: none;                          /* Eemaldab raami */
+}
+
+/* ========================
+   Vorm — sisendid ja nupud
+   ======================== */
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;                  /* Väli võtab kogu laiuse */
+  padding: 9px 12px;            /* Sisemine vahe väljas */
+  border: 1.5px solid #d1d5db; /* Helehall raam */
+  border-radius: 8px;           /* Kergelt ümarad nurgad */
+  font-size: 14px;              /* Teksti suurus väljas */
+  color: #1a1a2e;               /* Teksti värv väljas */
+  background: #fff;             /* Valge taust */
+  outline: none;                /* Eemaldab brauseri vaikimisi fookusraami */
+  transition: border-color 0.15s; /* Raami värvivahetus animeeritult 0.15s jooksul */
+  margin-bottom: 12px;          /* Vahe järgmise elemendi ees */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #1a1a2e; /* Fookuses olles muutub raam tumedaks */
+}
+
+.btn {
+  padding: 10px 18px;                              /* Nupu sisemine vahe */
+  border-radius: 10px;                             /* Ümarad nurgad */
+  border: none;                                    /* Eemaldab raami */
+  background: linear-gradient(135deg, #667eea, #764ba2); /* Lillakassinise gradient taust */
+  color: #fff;                                     /* Valge tekst */
+  font-weight: 600;                                /* Poolpaks tekst */
+  transition: all 0.2s ease;                       /* Kõik muutused animeeritult */
+}
+
+.btn:hover {
+  background: #f3f4f6; /* Hiirega üle viies muutub taust helehalliks */
+}
+
+.btn:active {
+  transform: translateY(-2px);             /* Vajutamisel liigub nupp 2px üles */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2); /* Vajutamisel tekib tugevam vari */
+}
+
+.btn-primary {
+  background: #1a1a2e;   /* Esmase nupu taust on tume sinakasmustad */
+  color: #fff;           /* Valge tekst */
+  border-color: #1a1a2e; /* Sama värv raami jaoks */
+}
+
+.btn-primary:hover {
+  background: #2d2d4a;   /* Hiirega üle viies veidi heledam taust */
+  border-color: #2d2d4a; /* Raam vastab taustale */
+}
+
+/* ========================
+   Kalkulaator
+   ======================== */
+.calc-display {
+  background: #f4f4f6;    /* Helehall taust kalkulaatori ekraanil */
+  border-radius: 10px;    /* Ümarad nurgad */
+  padding: 1rem 1.25rem;  /* Sisemine vahe */
+  text-align: right;      /* Numbrid joonduvad paremale */
+  margin-bottom: 1rem;    /* Vahe ekraani ja nuppude vahel */
+}
+
+.calc-expr {
+  font-size: 13px;  /* Väike tekst avaldise kuvamiseks */
+  color: #9ca3af;   /* Hall värv – sekundaarne info */
+  min-height: 20px; /* Välistab kõrguse hüpped tühja avaldise korral */
+}
+
+.calc-num {
+  font-size: 32px;     /* Suur number ekraanil */
+  font-weight: 600;    /* Poolpaks */
+  min-height: 44px;    /* Välistab kõrguse hüpped */
+  word-break: break-all; /* Pikk number murdub reale, ei jookse üle */
+  color: #1a1a2e;      /* Tume tekstvärv */
+}
+
+.calc-grid {
+  display: grid;                        /* Ruudustiku paigutus nuppudele */
+  grid-template-columns: repeat(4, 1fr); /* 4 võrdse laiusega veergu */
+  gap: 8px;                             /* 8px vahe nuppude vahel */
+}
+
+.calc-btn {
+  background: #f0f0f3;                         /* Helehall taust neoMorph-stiilis */
+  border-radius: 12px;                         /* Ümarad nurgad */
+  border: none;                                /* Raami puudub */
+  box-shadow: 5px 5px 10px #d1d1d1,            /* Parem-alumine vari – neumorphism efekt */
+              -5px -5px 10px #ffffff;           /* Vasak-ülemine valgusefekt */
+  padding: 22px;                               /* Suur sisemine vahe – sõrmesõbralik */
+  font-size: 20px;                             /* Numbri/tähemärgi suurus nupul */
+}
+
+.calc-btn:hover {
+  background: #f3f4f6; /* Hiirega üle viies veidi erinev taust */
+}
+
+.calc-btn:active {
+  box-shadow: inset 3px 3px 6px #d1d1d1,   /* Vajutamisel vari pöördub sissepoole */
+              inset -3px -3px 6px #ffffff;  /* Simuleerib vajutatud olekut */
+}
+
+.calc-btn.op {
+  color: #2563eb;   /* Tehtemärgid (+ - * /) on sinised */
+  font-weight: 600; /* Poolpaks */
+}
+
+.calc-btn.clear {
+  color: #dc2626;   /* Kustutuseks mõeldud nupud on punased */
+  font-weight: 600; /* Poolpaks */
+}
+
+.calc-btn.eq {
+  background: #1a1a2e;   /* Võrdusmärgi nupu taust on tume */
+  color: #fff;           /* Valge tekst */
+  border-color: #1a1a2e; /* Raam sama värv */
+  font-weight: 600;      /* Poolpaks */
+}
+
+.calc-btn.eq:hover {
+  background: #2d2d4a; /* Hover-olekus veidi heledam tume taust */
+}
+
+.calc-btn.wide {
+  grid-column: span 2; /* Nupp võtab kaks veergu laiust (nt "0" nupp) */
+}
+
+/* ========================
+   Ülesannete loend
+   ======================== */
+.todo-row {
+  display: flex;      /* Paigutab sisendi ja nupu kõrvuti */
+  gap: 8px;           /* Vahe sisendi ja nupu vahel */
+  margin-bottom: 1rem;/* Vahe all */
+}
+
+.todo-row input {
+  flex: 1;  /* Sisend võtab kogu saadaoleva ruumi */
+  margin: 0;/* Eemaldab vaikimisi marginaali */
+}
+
+.todo-item {
+  display: flex;       /* Elemendid reas (märkeruut, tekst, kustutus) */
+  align-items: center; /* Vertikaalselt tsentreeritud */
+  gap: 10px;           /* Vahe elementide vahel */
+  padding: 10px 0;     /* Sisevahe ülevalt/alt */
+  border-bottom: 1px solid #f3f4f6; /* Õhuke eraldaja ülesannete vahel */
+}
+
+.todo-item:last-child {
+  border-bottom: none; /* Viimasel elemendil eraldajat ei ole */
+}
+
+.todo-item.done .todo-text {
+  text-decoration: line-through; /* Tehtud ülesande tekst on maha tõmmatud */
+  color: #9ca3af;                /* Tehtud ülesande tekst on hall */
+}
+
+.todo-item,
+.list-item {
+  transition: all 0.2s ease; /* Kõik muutused animeeritult 0.2s jooksul */
+}
+
+.todo-item input[type="checkbox"] {
+  width: 16px;      /* Märkeruudu laius */
+  height: 16px;     /* Märkeruudu kõrgus */
+  flex-shrink: 0;   /* Märkeruut ei kahane flex-paigutuses */
+  cursor: pointer;  /* Hiirekursor muutub käe kujuliseks */
+  margin: 0;        /* Eemaldab marginaali */
+}
+
+.todo-text {
+  flex: 1;       /* Tekst võtab kogu ülejäänud ruumi */
+  font-size: 15px;  /* Teksti suurus */
+  color: #1a1a2e;   /* Tume tekstvärv */
+}
+
+.todo-item:hover,
+.list-item:hover {
+  transform: translateX(5px);          /* Hiirega üle viies liigub element 5px paremale */
+  background: rgba(0,0,0,0.03);        /* Väga kerge tumendus taustal */
+}
+
+.todo-del {
+  background: none;   /* Läbipaistev taust */
+  border: none;       /* Raami puudub */
+  color: #d1d5db;     /* Helehall värv – diskreedsem */
+  font-size: 20px;    /* Kustutussümbol suurem */
+  cursor: pointer;    /* Käe kursor */
+  padding: 0 4px;     /* Väike külgmine vahe */
+  line-height: 1;     /* Reakõrgus 1 – tsentreeritud vertikaalselt */
+  transition: color 0.15s; /* Värvivahetus animeeritult */
+}
+
+.todo-del:hover {
+  color: #dc2626; /* Hiirega üle viies muutub punaseks */
+}
+
+.todo-footer {
+  display: flex;               /* Elemendid kõrvuti */
+  justify-content: space-between; /* Üks vasakul, teine paremal */
+  align-items: center;         /* Vertikaalselt tsentreeritud */
+  margin-top: 12px;            /* Vahe loendi ja jaluse vahel */
+}
+
+.todo-footer .btn {
+  font-size: 13px;   /* Väiksem tekst jaluse nupus */
+  padding: 6px 14px; /* Väiksem sisevahe */
+}
+
+/* ========================
+   Viktoriin
+   ======================== */
+.score-bar {
+  display: flex;               /* Elemendid kõrvuti */
+  justify-content: space-between; /* Tekst vasakul, skoor paremal */
+  align-items: center;         /* Vertikaalselt tsentreeritud */
+  margin-bottom: 1rem;         /* Vahe all */
+}
+
+.quiz-progress-txt {
+  font-size: 14px; /* Väike tekst küsimuste edenemise kuvamiseks */
+  color: #6b7280;  /* Hall värv */
+}
+
+.score-pill {
+  background: #f3f4f6;  /* Helehall taust */
+  border-radius: 99px;  /* Täiesti ümar pill-kuju */
+  padding: 4px 14px;    /* Sisevahe */
+  font-size: 13px;      /* Väike tekst */
+  font-weight: 600;     /* Poolpaks */
+}
+
+.progress {
+  height: 5px;          /* Edenemisnäidiku kõrgus */
+  background: #e5e7eb;  /* Helehall taust (täitmata osa) */
+  border-radius: 99px;  /* Ümarad otsad */
+  margin-bottom: 1.25rem; /* Vahe all */
+  overflow: hidden;     /* Täitmise riba ei ulatu üle ümaruse */
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #00c6ff, #0072ff); /* Sinine gradient täidetud osale */
+}
+
+.quiz-q {
+  font-size: 16px;    /* Küsimuse teksti suurus */
+  font-weight: 600;   /* Poolpaks */
+  margin-bottom: 1rem;/* Vahe küsimuse ja vastuste vahel */
+  color: #1a1a2e;     /* Tume tekstvärv */
+}
+
+.quiz-opts {
+  display: grid; /* Vastusevariandid ruudustikus */
+  gap: 8px;      /* Vahe variantide vahel */
+}
+
+.quiz-opt {
+  padding: 11px 16px;           /* Sisevahe nupu sees */
+  border-radius: 8px;           /* Kergelt ümarad nurgad */
+  border: 1.5px solid #d1d5db; /* Helehall raam */
+  background: #fff;             /* Valge taust */
+  text-align: left;             /* Tekst vasakul */
+  font-size: 14px;              /* Teksti suurus */
+  cursor: pointer;              /* Käe kursor */
+  color: #1a1a2e;               /* Tume tekstvärv */
+  transition: all 0.15s;        /* Muutused animeeritult */
+}
+
+.quiz-opt:hover:not(:disabled) {
+  background: #f3f4f6; /* Hiirega üle viies helehall taust (ainult kui pole disabled) */
+  border-color: #9ca3af; /* Tumedam raam hover-olekus */
+}
+
+.quiz-opt.correct {
+  border-color: #16a34a; /* Õige vastuse raam on roheline */
+  background: #f0fdf4;   /* Kerge roheline taust */
+  color: #15803d;        /* Roheline tekst */
+}
+
+.quiz-opt.wrong {
+  border-color: #dc2626; /* Vale vastuse raam on punane */
+  background: #fef2f2;   /* Kerge punane taust */
+  color: #b91c1c;        /* Punane tekst */
+}
+
+.quiz-feedback {
+  margin-top: 1rem;   /* Vahe vastuste ja tagasiside vahel */
+  padding: 10px 16px; /* Sisevahe */
+  border-radius: 8px; /* Ümarad nurgad */
+  font-size: 14px;    /* Teksti suurus */
+  font-weight: 500;   /* Keskmise paksusega tekst */
+}
+
+.quiz-feedback.ok {
+  background: #f0fdf4;           /* Kerge roheline taust õige vastuse korral */
+  color: #15803d;                /* Roheline tekst */
+  border: 1px solid #bbf7d0;    /* Heledalt roheline raam */
+}
+
+.quiz-feedback.err {
+  background: #fef2f2;           /* Kerge punane taust vale vastuse korral */
+  color: #b91c1c;                /* Punane tekst */
+  border: 1px solid #fecaca;    /* Heledalt punane raam */
+}
+
+.quiz-next-row {
+  margin-top: 1rem;  /* Vahe tagasiside ja järgmise nupu vahel */
+  text-align: right; /* "Järgmine" nupp paremal */
+}
+
+/* ========================
+   Filtriga nimekiri
+   ======================== */
+.add-row {
+  display: flex;       /* Elemendid reas */
+  gap: 8px;            /* Vahe elementide vahel */
+  margin-bottom: 1rem; /* Vahe all */
+  align-items: center; /* Vertikaalselt tsentreeritud */
+}
+
+.add-row input {
+  flex: 1;  /* Sisend võtab kogu saadaoleva ruumi */
+  margin: 0;/* Eemaldab marginaali */
+}
+
+.add-row select {
+  width: auto; /* Ripploend võtab ainult vajaliku laiuse */
+  margin: 0;   /* Eemaldab marginaali */
+}
+
+.filter-row {
+  display: flex;       /* Elemendid reas */
+  gap: 8px;            /* Vahe elementide vahel */
+  margin-bottom: 1rem; /* Vahe all */
+  align-items: center; /* Vertikaalselt tsentreeritud */
+}
+
+.filter-row input {
+  flex: 1;  /* Otsingusisend võtab kogu ruumi */
+  margin: 0;/* Eemaldab marginaali */
+}
+
+.filter-row select {
+  width: auto; /* Ripploend võtab ainult vajaliku laiuse */
+  margin: 0;   /* Eemaldab marginaali */
+}
+
+.list-item {
+  display: flex;               /* Elemendid reas */
+  align-items: center;         /* Vertikaalselt tsentreeritud */
+  justify-content: space-between; /* Nimi vasakul, silt+kustutus paremal */
+  padding: 10px 0;             /* Sisevahe ülevalt/alt */
+  border-bottom: 1px solid #f3f4f6; /* Eraldaja elementide vahel */
+}
+
+.list-item:last-child {
+  border-bottom: none; /* Viimasel elemendil eraldajat ei ole */
+}
+
+.list-name {
+  font-size: 15px; /* Elemendi nime teksti suurus */
+  color: #1a1a2e;  /* Tume tekstvärv */
+}
+
+.list-right {
+  display: flex;       /* Silt ja kustutusnutp kõrvuti */
+  align-items: center; /* Vertikaalselt tsentreeritud */
+  gap: 8px;            /* Vahe sildi ja nupu vahel */
+}
+
+.list-tag {
+  font-size: 12px;   /* Väike tekst sildil */
+  font-weight: 600;  /* Poolpaks */
+  padding: 3px 10px; /* Sisevahe */
+  border-radius: 99px; /* Pill-kuju */
+}
+
+.tag-töö     { background: #dbeafe; color: #1e40af; } /* Sinine silt "töö" kategooriale */
+.tag-isiklik { background: #ede9fe; color: #5b21b6; } /* Lilla silt "isiklik" kategooriale */
+.tag-õpe     { background: #dcfce7; color: #15803d; } /* Roheline silt "õpe" kategooriale */
+.tag-sport   { background: #fef3c7; color: #92400e; } /* Kollane silt "sport" kategooriale */
+
+.list-del {
+  background: none;   /* Läbipaistev taust */
+  border: none;       /* Raami puudub */
+  color: #d1d5db;     /* Helehall värv */
+  font-size: 18px;    /* Kustutussümbol */
+  cursor: pointer;    /* Käe kursor */
+  padding: 0 4px;     /* Külgmine sisevahe */
+  line-height: 1;     /* Reakõrgus */
+  transition: color 0.15s; /* Värvivahetus animeeritult */
+}
+
+.list-del:hover {
+  color: #dc2626; /* Hiirega üle viies muutub punaseks */
+}
+
+.list-footer {
+  display: flex;               /* Elemendid kõrvuti */
+  justify-content: space-between; /* Loendur vasakul, nupp paremal */
+  align-items: center;         /* Vertikaalselt tsentreeritud */
+  margin-top: 12px;            /* Vahe loendi ja jaluse vahel */
+}
+
+.list-footer .btn {
+  font-size: 13px;   /* Väiksem tekst */
+  padding: 6px 14px; /* Väiksem sisevahe */
+}
+
+/* ========================
+   Ühised abistajad
+   ======================== */
+.count {
+  color: #6b7280;  /* Hall värv loenduri tekstile */
+  font-size: 13px; /* Väike tekst */
+}
+
+.empty {
+  color: #9ca3af;   /* Heledam hall – alatooni stiilis */
+  font-size: 14px;  /* Teksti suurus */
+  text-align: center; /* Tsentreeritud horisontaalselt */
+  padding: 1.5rem 0;  /* Sisevahe ülevalt/alt, et tühi olek oleks nähtav */
+}
+
+.save-notice {
+  display: flex;       /* Ikoon ja tekst kõrvuti */
+  align-items: center; /* Vertikaalselt tsentreeritud */
+  gap: 6px;            /* Vahe ikooni ja teksti vahel */
+  margin-top: 10px;    /* Vahe ülal */
+  font-size: 12px;     /* Väike tekst */
+  color: #9ca3af;      /* Hall värv */
+}
+
+.save-dot {
+  width: 6px;          /* Väikese rohelise punkti laius */
+  height: 6px;         /* Kõrgus */
+  border-radius: 50%;  /* Täiesti ümar */
+  background: #16a34a; /* Roheline värv – "salvestatud" indikaator */
+  flex-shrink: 0;      /* Punkt ei kahane flex-paigutuses */
+}
