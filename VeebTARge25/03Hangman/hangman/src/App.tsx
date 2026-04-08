@@ -1,120 +1,118 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useCallback, useEffect, useState } from 'react'
+import words from "./wordList.json"
 import './App.css'
+import {HangmanDrawing} from './HangmanDrawing'
+import {HangmanWord} from './HangmanWord'
+import {Keyboard} from  './Keyboard'
+
+
+//see funktsioon tagastab suvalise sõna wordList.json failist
+function getWord() {
+  return words[Math.floor(Math.random() * words.length)]
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  
+  /*sõnade salvestamine array sisse on kõige lihtsam
+  stringi kasutan kuna viitan, et on tegemist ainult stringiga*/ 
+  const [wordToGuess, setWordToGuess] = useState(getWord)
+  //string on loetelu e massiivis 
+  const [guessedLetters, setGuessedLetters] = useState<string[]>([])
+
+  // filtreerib välja tähti, mis ei ole arvatavas sõnas
+  const inCorrectLetters = guessedLetters.filter(
+    letter => !wordToGuess.includes(letter)
+  )
+
+  //kui oled pakkunud valesid tähti kuus korda, siis kaotad
+  const isLoser = inCorrectLetters.length >= 6
+
+  //võidu sildi kuvamine
+  //kasutage spliti ja every
+  const isWinner = wordToGuess
+  .split("")
+  .every(letter => guessedLetters.includes(letter));
+
+  // see jätab meelde funktsiooni 
+  //et ei loodaks seda uuesti igas tsüklis
+const addGuessedLetter = useCallback
+  ((letter: string) => {
+    //isLoser ja isWinner ja vastavalt sellele annab tulemuse
+    if (guessedLetters.includes(letter) || isLoser || isWinner)
+      return 
+    //funktsioon on edasi antud setterile, võta praegune olek ja returni uus versioon või situatsioon
+    //funktsionaalne update, välistab buge uuenduse käigus
+    setGuessedLetters(currentLetters => [...currentLetters, letter])
+      },
+      [guessedLetters, isLoser, isWinner]
+    )
+
+    useEffect(() => {
+      const handler = (e: KeyboardEvent) =>  {
+        const key = e.key
+        if (!key.match(/^[a-z]$/)) return
+
+        e.preventDefault()
+        addGuessedLetter(key)
+      }
+
+      document.addEventListener("keypress", handler)
+
+      return () => {
+        document.removeEventListener("keypress", handler)
+      }
+    }, [guessedLetters])
+
+    useEffect(() => {
+      const handler = (e: KeyboardEvent) => {
+        const key = e.key
+        if (key !== "Enter") return
+
+        e.preventDefault()
+        setGuessedLetters([])
+        setWordToGuess(getWord())
+      }
+
+      document.addEventListener("keypress", handler)
+
+      return () => {
+        document.removeEventListener("keypress", handler)
+      }
+    }, [])
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div
+    style={{
+      maxWidth: "800px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "2rem",
+      margin: "0 auto",
+      alignItems: "center"
+    }}
+    >
+      <div style={{ fontSize: "2rem", textAlign: 'center' }}>
+        {isWinner && "Winner! - Refresh to try again"}
+        {isLoser && "Noob! - Refresh to try again"}
+      </div>
 
-      <div className="ticks"></div>
+      {/* Kutsume esile erinevad komponendid */}
+      <HangmanDrawing numberOfGuesses={inCorrectLetters.length} />
+      <HangmanWord reveal={isLoser} guessedLetters={guessedLetters} wordToGuess = {wordToGuess} />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <div style={{ alignSelf: "stretch"}} >
+          <Keyboard 
+            disabled={isWinner || isLoser}
+            activeLetters={guessedLetters.filter(letter =>
+            wordToGuess.includes(letter)
+          )}
+            inactiveLetters={inCorrectLetters}
+            addGuessedLetter={addGuessedLetter}   
+          />
+      </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+    </div>
   )
 }
 

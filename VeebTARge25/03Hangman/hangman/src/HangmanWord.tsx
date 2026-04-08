@@ -8,7 +8,7 @@ type HangmanWordProps = {
 export function HangmanWord({ guessedLetters , wordToGuess, reveal = false}:
     HangmanWordProps) {
 
-    const word = "test"
+    //const word = "test"
     //const guessedLetters = ["t", "e", "s"]
 
     return (
@@ -20,10 +20,11 @@ export function HangmanWord({ guessedLetters , wordToGuess, reveal = false}:
                 fontWeight: "bold",
                 textTransform: "uppercase",
                 fontFamily: "monospace",
+                
                 }}
             >
                 {wordToGuess.split("").map((letter, index) => (
-                    <span style={{borderBottom: ".1em solid black"}} key={index}>
+                    <span style={{borderBottom: ".1em solid black", height: "3rem"}} key={index}>
                         <span
                             style={{
                                 visibility: guessedLetters.includes(letter) || reveal
