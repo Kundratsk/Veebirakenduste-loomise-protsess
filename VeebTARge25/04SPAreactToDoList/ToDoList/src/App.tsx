@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
+import ToDoItem from './ToDoItem';
 
 type ToDo = {
   id: number;
@@ -23,8 +24,24 @@ const addToDo = () => {
   //newToDo.trim eemdaldab tühikud testi algusest ja lõpust, et vältida tühjade ülesannete lisamist
   // completed: false tähendab, et uus ülesanne on algselt lõpetamata.
   setNewToDo('');
+  }
   //pärast uue ülesande lisamist tühjendame sisendvälja, et kasutaja saaks kohe uue ülesande lisada
-};
+  const toggleToDo = (id: number) => {
+    //ToggleToDo funktsioon võtab ülesande ID ja muudab selle completed oleku vastupidiseks
+    //toDos.map() läbib kõik ülesanded ja kui leitud ülesanne vastab ID-le siis luuakse
+    // uus objekt, us completed väärtus on mitte tehtud
+    setToDos(toDos.map(toDo =>
+      toDo.id === id ? {...toDo, completed: !toDo.completed} : toDo
+    ));
+  };
+
+  const deleteToDo = (id: number) => {
+    // delete Todo funktsioon võtab ülesande ID ja eemaldab selle toDos massiivist.
+    // toDos.filter() loob uue massiivi, mis sisaldab ainult neid ülesandeid,
+    // mille ID ei ole kustutatud.
+    setToDos(toDos.filter(toDo => toDo.id !== id));
+  };
+
 
 //function App() {
 
@@ -56,4 +73,6 @@ const addToDo = () => {
   )
 //}
 }
+
+
 export default App
