@@ -42,7 +42,7 @@ button {
 }
 
 button:hover {
-  background-color: chocolate;
+  background-color: rgb(26, 223, 8);
 }
 
 .todo-list {
@@ -54,7 +54,7 @@ button:hover {
   display: flex;
   justify-content: space-between;
   padding: 8px;
-  border-bottom: 1px solid #b31a1a;
+  border-bottom: 1px solid #050404;
 }
 
 .todo-item.completed span{
