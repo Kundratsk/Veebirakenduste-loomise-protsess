@@ -47,7 +47,7 @@ const addToDo = () => {
 
 
   return (
-    <div className="App">
+    <div className="app">
       <h1>To-Do list</h1>
       <div className ="input-row">
         <input 
