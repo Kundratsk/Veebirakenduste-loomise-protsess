@@ -1,9 +1,0 @@
-CREATE DATABASE ReactData;
-GO
-
-USE ReactData;
-
-CREATE TABLE Items (
-    id INT IDENTITY(1,1) PRIMARY KEY,
-    name NVARCHAR(255) NOT NULL
-);
