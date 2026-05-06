@@ -4,11 +4,11 @@ namespace fullStackReact.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PlanetsController : Controller
+    public class PlanetsController : ControllerBase
     {
-        public IActionResult Index()
+        public IActionResult SchoolIndex()
         {
-            return View();
+            return Ok();
         }
     }
 }
