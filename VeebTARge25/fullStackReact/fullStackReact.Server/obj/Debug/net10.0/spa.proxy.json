@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:54537",
+"RedirectUrl": "",
+"LaunchCommand": "npm run dev",
+"WorkingDirectory": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\..\\fullstackreact.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}
