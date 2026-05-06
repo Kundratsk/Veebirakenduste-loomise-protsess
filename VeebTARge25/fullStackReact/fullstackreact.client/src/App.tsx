@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
+import {  } from 'react';
 import './App.css';
-
-interface Forecast {
-    date: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
-}
+import PlanetsList from './views/PlanetsList';
+import {Routes, Navigate, Route} from  "react-router-dom"
 
 function App() {
-    
+    return (
+            <Routes>
+                <Route path="/" element={<Navigate to="/planets" replace />} />
+                <Route path="/planets" element={<PlanetsList />} />
+            </Routes>
+    );
 }
 
 export default App;

@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|c:\\users\\opilane\\source\\repos\\yim\\switch\\veebirakenduste-loomise-protsess\\veebtarge25\\fullstackreact\\fullstackreact.client\\src\\types\\types.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|solutionrelative:fullstackreact.client\\src\\types\\types.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|c:\\users\\opilane\\source\\repos\\yim\\switch\\veebirakenduste-loomise-protsess\\veebtarge25\\fullstackreact\\fullstackreact.client\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|solutionrelative:fullstackreact.client\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|c:\\users\\opilane\\source\\repos\\yim\\switch\\veebirakenduste-loomise-protsess\\veebtarge25\\fullstackreact\\fullstackreact.client\\src\\types\\planets.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|solutionrelative:fullstackreact.client\\src\\types\\planets.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|c:\\users\\opilane\\source\\repos\\yim\\switch\\veebirakenduste-loomise-protsess\\veebtarge25\\fullstackreact\\fullstackreact.client\\src\\views\\planetslist.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|solutionrelative:fullstackreact.client\\src\\views\\planetslist.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|c:\\users\\opilane\\source\\repos\\yim\\switch\\veebirakenduste-loomise-protsess\\veebtarge25\\fullstackreact\\fullstackreact.client\\src\\main.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|solutionrelative:fullstackreact.client\\src\\main.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|c:\\users\\opilane\\source\\repos\\yim\\switch\\veebirakenduste-loomise-protsess\\veebtarge25\\fullstackreact\\fullstackreact.client\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{5CD627FC-4EB4-820C-4866-6E3CA253B708}|fullstackreact.client\\fullstackreact.client.esproj|solutionrelative:fullstackreact.client\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98CA05D6-D422-9C56-5A52-818890777FE8}|fullStackReact.Server\\fullStackReact.Server.csproj|c:\\users\\opilane\\source\\repos\\yim\\switch\\veebirakenduste-loomise-protsess\\veebtarge25\\fullstackreact\\fullstackreact.server\\domain\\planets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98CA05D6-D422-9C56-5A52-818890777FE8}|fullStackReact.Server\\fullStackReact.Server.csproj|solutionrelative:fullstackreact.server\\domain\\planets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{98CA05D6-D422-9C56-5A52-818890777FE8}|fullStackReact.Server\\fullStackReact.Server.csproj|c:\\users\\opilane\\source\\repos\\yim\\switch\\veebirakenduste-loomise-protsess\\veebtarge25\\fullstackreact\\fullstackreact.server\\controllers\\planetscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,10 +39,6 @@
       "RelativeMoniker": "D:0:0:{98CA05D6-D422-9C56-5A52-818890777FE8}|fullStackReact.Server\\fullStackReact.Server.csproj|solutionrelative:fullstackreact.server\\viewmodel\\planetslistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98CA05D6-D422-9C56-5A52-818890777FE8}|fullStackReact.Server\\fullStackReact.Server.csproj|c:\\users\\opilane\\source\\repos\\yim\\switch\\veebirakenduste-loomise-protsess\\veebtarge25\\fullstackreact\\fullstackreact.server\\domain\\planets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98CA05D6-D422-9C56-5A52-818890777FE8}|fullStackReact.Server\\fullStackReact.Server.csproj|solutionrelative:fullstackreact.server\\domain\\planets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{98CA05D6-D422-9C56-5A52-818890777FE8}|fullStackReact.Server\\fullStackReact.Server.csproj|c:\\users\\opilane\\source\\repos\\yim\\switch\\veebirakenduste-loomise-protsess\\veebtarge25\\fullstackreact\\fullstackreact.server\\migrations\\planetcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98CA05D6-D422-9C56-5A52-818890777FE8}|fullStackReact.Server\\fullStackReact.Server.csproj|solutionrelative:fullstackreact.server\\migrations\\planetcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -34,55 +50,94 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "main.tsx",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\main.tsx",
+              "RelativeDocumentMoniker": "fullstackreact.client\\src\\main.tsx",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\main.tsx",
+              "RelativeToolTip": "fullstackreact.client\\src\\main.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-05-06T13:16:14.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "App.css",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\App.css",
+              "RelativeDocumentMoniker": "fullstackreact.client\\src\\App.css",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\App.css",
+              "RelativeToolTip": "fullstackreact.client\\src\\App.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-05-06T13:12:51.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "types.ts",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\types\\types.ts",
-              "RelativeDocumentMoniker": "fullstackreact.client\\src\\types\\types.ts",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\types\\types.ts",
-              "RelativeToolTip": "fullstackreact.client\\src\\types\\types.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAbAAAAAAAAAA==",
+              "Title": "App.tsx",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\App.tsx",
+              "RelativeDocumentMoniker": "fullstackreact.client\\src\\App.tsx",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\App.tsx",
+              "RelativeToolTip": "fullstackreact.client\\src\\App.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-05-06T13:08:24.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlanetsList.tsx",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\views\\PlanetsList.tsx",
+              "RelativeDocumentMoniker": "fullstackreact.client\\src\\views\\PlanetsList.tsx",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\views\\PlanetsList.tsx",
+              "RelativeToolTip": "fullstackreact.client\\src\\views\\PlanetsList.tsx",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-05-06T12:32:16.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "planets.ts",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\types\\planets.ts",
+              "RelativeDocumentMoniker": "fullstackreact.client\\src\\types\\planets.ts",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullstackreact.client\\src\\types\\planets.ts",
+              "RelativeToolTip": "fullstackreact.client\\src\\types\\planets.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2026-05-06T12:27:38.055Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PlanetContext.cs",
-              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\Data\\PlanetContext.cs",
-              "RelativeDocumentMoniker": "fullStackReact.Server\\Data\\PlanetContext.cs",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\Data\\PlanetContext.cs",
-              "RelativeToolTip": "fullStackReact.Server\\Data\\PlanetContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T12:04:46.001Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "PlanetsController.cs",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\Controllers\\PlanetsController.cs",
               "RelativeDocumentMoniker": "fullStackReact.Server\\Controllers\\PlanetsController.cs",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\Controllers\\PlanetsController.cs*",
-              "RelativeToolTip": "fullStackReact.Server\\Controllers\\PlanetsController.cs*",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwBkAAAApAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\Controllers\\PlanetsController.cs",
+              "RelativeToolTip": "fullStackReact.Server\\Controllers\\PlanetsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T11:57:44.752Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "PlanetsListViewModel.cs",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\ViewModel\\PlanetsListViewModel.cs",
               "RelativeDocumentMoniker": "fullStackReact.Server\\ViewModel\\PlanetsListViewModel.cs",
-              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\ViewModel\\PlanetsListViewModel.cs*",
-              "RelativeToolTip": "fullStackReact.Server\\ViewModel\\PlanetsListViewModel.cs*",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\ViewModel\\PlanetsListViewModel.cs",
+              "RelativeToolTip": "fullStackReact.Server\\ViewModel\\PlanetsListViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T11:56:02.245Z",
@@ -90,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "PlanetContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\Migrations\\PlanetContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "fullStackReact.Server\\Migrations\\PlanetContextModelSnapshot.cs",
@@ -103,15 +158,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Planets.cs",
               "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\Domain\\Planets.cs",
               "RelativeDocumentMoniker": "fullStackReact.Server\\Domain\\Planets.cs",
               "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\Domain\\Planets.cs",
               "RelativeToolTip": "fullStackReact.Server\\Domain\\Planets.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T10:17:17.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PlanetContext.cs",
+              "DocumentMoniker": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\Data\\PlanetContext.cs",
+              "RelativeDocumentMoniker": "fullStackReact.Server\\Data\\PlanetContext.cs",
+              "ToolTip": "C:\\Users\\opilane\\source\\repos\\yim\\Switch\\Veebirakenduste-loomise-protsess\\VeebTARge25\\fullStackReact\\fullStackReact.Server\\Data\\PlanetContext.cs",
+              "RelativeToolTip": "fullStackReact.Server\\Data\\PlanetContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T12:04:46.001Z",
               "EditorCaption": ""
             }
           ]
