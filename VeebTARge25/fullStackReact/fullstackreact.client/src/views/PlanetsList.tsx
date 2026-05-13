@@ -1,41 +1,44 @@
-import { useState, useCallback, useEffect } from "react";
+
+import { useEffect, useState } from "react";
 import type { Planets } from "../types/planets";
 import { useNavigate } from "react-router-dom";
 
 function PlanetsList() {
-    const [planets, setPlanets] = useState<Planets[]>([])
+    const [planets, setPlanets] = useState<Planets[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
     const navigate = useNavigate();
 
-    /* loob ühenduse controlleriga, mille nimi on PlanetsController*/ 
+    //loob ühenduse controlleriga, mille nimi on PlanetsController
+    useEffect(() => {
+        const fetchPlanets = async () => {
+            try {
+                setLoading(true);
+                setError(null);
 
-    const fetchPlanets = useCallback(async () => {
-        try {
-            setLoading(true);
-            setError(null);
-
-            const response = await fetch("/api/planets");
-            if (response.ok) {
-                const data = await response.json();
-                setPlanets(data);
+                const response = await fetch("/api/Planets");
+                if (response.ok) {
+                    const data = await response.json();
+                    setPlanets(data);
+                }
+            } catch (error) {
+                const message = error instanceof Error ? error.message : "Failed to load planets";
+                setError(message);
+            } finally {
+                setLoading(false);
             }
-        } catch (error) {
-            console.error("Fetch error:", error);
-        }
+        };
+
+        fetchPlanets();
     }, []);
 
     const openCreate = () => {
-        navigate("/planets/create")
+        navigate("/planets/create");
     }
 
-    useEffect(() => {
-        (async () => {
-            await fetchPlanets();
-        }) ();
-    }, [fetchPlanets]);
 
-    return (    
+    return (
         <div className="page-card">
             <div style={{
                 display: "flex",
@@ -43,7 +46,7 @@ function PlanetsList() {
                 alignItems: "center"
             }}>
                 <h1 style={{ margin: 0 }}>Planets List</h1>
-                <button type="button" className="success" onClick= {openCreate}>
+                <button type="button" className="success" onClick={openCreate}>
                     + Create
                 </button>
             </div>
@@ -61,7 +64,7 @@ function PlanetsList() {
                             <th>Description</th>
                             <th>Types</th>
                             <th>Mass</th>
-                            <th style={{width: 220 }}>Actions</th>
+                            <th style={{ width: 220 }}>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,7 +82,6 @@ function PlanetsList() {
                                 </tr>
                             ))
                         ) : (
-
                             <tr>
                                 <td>Loading planets or data not found...</td>
                             </tr>
@@ -87,10 +89,8 @@ function PlanetsList() {
                     </tbody>
                 </table>
             )}
-        </div >
-
-
-  );
-}
+        </div>
+    );
+};
 
 export default PlanetsList;

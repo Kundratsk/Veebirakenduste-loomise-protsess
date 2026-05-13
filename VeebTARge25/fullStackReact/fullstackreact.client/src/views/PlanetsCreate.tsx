@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 
 type FormState = {
     //id: string;
@@ -7,7 +8,7 @@ type FormState = {
     description: string;
     type: string;
     mass: number;
-};
+}
 
 export default function PlanetsCreate() {
     const navigate = useNavigate();
@@ -25,7 +26,7 @@ export default function PlanetsCreate() {
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setForm((prev) => ({ ...prev, [name]: value }));
+        setForm((p) => ({ ...p, [name]: value }));
     };
 
     const onSubmit = async (e: React.FormEvent) => {
@@ -42,18 +43,16 @@ export default function PlanetsCreate() {
                 mass: form.mass ? Number(form.mass) : null
             }
 
-            const res = await fetch("/api/plantets", {
+            const res = await fetch("/api/Planets", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
-            })
+            });
 
             if (!res.ok) {
-                throw new Error("Failed to create planet");
+                throw new Error(`Failed to create planet (${res.status})`);
             }
 
-            const result = await res.json();
-            console.log("Planet created:", result);
             navigate("/planets");
 
         } catch (err: unknown) {
@@ -76,15 +75,15 @@ export default function PlanetsCreate() {
                 </div>
                 <div>
                     <label>Description</label>
-                    <input name="description" value={form.description} onChange={onChange} required style={{ width: "100%", padding: 8 }} />
+                    <textarea name="description" value={form.description} onChange={onChange} style={{ width: "100%", padding: 8 }} />
                 </div>
                 <div>
                     <label>Type</label>
-                    <input name="type" value={form.type} onChange={onChange} required style={{ width: "100%", padding: 8 }} />
+                    <input name="type" value={form.type} onChange={onChange} style={{ width: "100%", padding: 8 }} />
                 </div>
                 <div>
                     <label>Mass</label>
-                    <input name="mass" type="number" value={form.mass} onChange={onChange} required style={{ width: "100%", padding: 8 }} />
+                    <input name="mass" type="number" value={form.mass} onChange={onChange} style={{ width: "100%", padding: 8 }} />
                 </div>
 
                 <div style={{ display: "flex", gap: 10 }}>

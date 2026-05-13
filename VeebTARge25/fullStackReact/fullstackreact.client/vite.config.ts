@@ -35,7 +35,7 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
 }
 
 const target = env.ASPNETCORE_HTTPS_PORT ? `https://localhost:${env.ASPNETCORE_HTTPS_PORT}` :
-    env.ASPNETCORE_URLS ? env.ASPNETCORE_URLS.split(';')[0] : 'https://localhost:7206';
+    env.ASPNETCORE_URLS ? env.ASPNETCORE_URLS.split(';')[0] : 'https://localhost:7234';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -47,12 +47,18 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/weatherforecast': {
+            '^/planets': {
                 target,
                 secure: false
-            }
+            },
+            //kui tahad backendiga suhelda, 
+            //siis kõik requestid, mis algavad /api, suunatakse backendile
+            '^/api': {
+                target,
+                secure: false
+            },
         },
-        port: parseInt(env.DEV_SERVER_PORT || '54537'),
+        port: parseInt(env.DEV_SERVER_PORT || '51870'),
         https: {
             key: fs.readFileSync(keyFilePath),
             cert: fs.readFileSync(certFilePath),
